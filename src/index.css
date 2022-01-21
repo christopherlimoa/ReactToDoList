@@ -92,10 +92,6 @@ ul li::before {
 	margin-right: 0.5rem;
 }
 
-.item input[type="checkbox"]:focus + label {
-	text-decoration: underline;
-}
-
 .item > label {
 	font-size: 0.75rem;
 	flex-grow: 1;
@@ -113,5 +109,42 @@ ul li::before {
 .item svg:focus,
 .item svg:hover {
 	color: red;
+	outline: none;
+}
+
+.addForm {
+	width: 100%;
+	display: flex;
+	justify-content: flex-start;
+	margin: 0.5rem 0 0;
+	padding: 0 0.5rem 0.25rem;
+	border-bottom: 1px solid #eee;
+}
+
+.addForm input[type="text"] {
+	flex-grow: 1;
+	max-width: calc(100% - 50px);
+	min-height: 48px;
+	font-size: 1rem;
+	padding: 0.25rem;
+	border-radius: 0.25rem;
+	margin-right: 0.25rem;
+	outline: none;
+}
+
+button {
+	height: 48px;
+	min-width: 48px;
+	border-radius: 0.25rem;
+	padding: 0.5rem;
+	font-size: 1rem;
+	background-color: aliceblue;
+	color: mediumblue;
+	cursor: pointer;
+}
+
+button:hover {
+	color: white;
+	background-color: lightgreen;
 	outline: none;
 }
