@@ -7,23 +7,9 @@ import { useState } from "react";
 
 function App() {
 	// default items in to do list
-	const [items, setItems] = useState([
-		{
-			id: 1,
-			checked: true,
-			item: "Grocery run",
-		},
-		{
-			id: 2,
-			checked: false,
-			item: "Item 2",
-		},
-		{
-			id: 3,
-			checked: false,
-			item: "Item 3",
-		},
-	]);
+	const [items, setItems] = useState(
+		JSON.parse(localStorage.getItem("todolist"))
+	);
 
 	// new default item with empty string
 	const [newItem, setNewItem] = useState("");
