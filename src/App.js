@@ -1,4 +1,5 @@
 import Header from "./Header";
+import SearchItem from "./SearchItem";
 import AddItem from "./AddItem";
 import Content from "./Content";
 import Footer from "./Footer";
@@ -13,6 +14,7 @@ function App() {
 
 	// new default item with empty string
 	const [newItem, setNewItem] = useState("");
+	const [search, setSearch] = useState("");
 
 	const setAndSaveItems = (newItemsList) => {
 		setItems(newItemsList);
@@ -50,6 +52,11 @@ function App() {
 		setNewItem("");
 	};
 
+	// not case sensitive, show everything if no search term given
+	const searchFilter = search
+		? items.filter((x) => x.item.toLowerCase().includes(search.toLowerCase()))
+		: items;
+
 	return (
 		<div className="App">
 			<Header title="To Do List" />
@@ -58,8 +65,9 @@ function App() {
 				setNewItem={setNewItem}
 				handleAdd={handleAdd}
 			/>
+			<SearchItem search={search} setSearch={setSearch} />
 			<Content
-				items={items}
+				items={searchFilter}
 				handleCheck={handleCheck}
 				handleDelete={handleDelete}
 			/>
